@@ -1,15 +1,18 @@
-import { Box } from '@chakra-ui/react';
+import { Provider } from 'react-redux';
+import { store } from './store';
 import { BrowserRouter as Router } from 'react-router-dom';
 import { Routes } from './Routes';
+import { ChakraProvider } from '@chakra-ui/react';
+import { themeProvider } from './theme';
 
-function App() {
+export const App = () => {
   return (
-    <Box className="App">
-      <Router>
-        <Routes />
-      </Router>
-    </Box>
+    <Provider store={store}>
+      <ChakraProvider theme={themeProvider}>
+        <Router>
+          <Routes />
+        </Router>
+      </ChakraProvider>
+    </Provider>
   );
-}
-
-export default App;
+};
