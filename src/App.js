@@ -1,8 +1,14 @@
+import { Box } from '@chakra-ui/react';
+import { BrowserRouter as Router } from 'react-router-dom';
+import { Routes } from './Routes';
+
 function App() {
   return (
-    <div className="App">
-      <h1>hello</h1>
-    </div>
+    <Box className="App">
+      <Router>
+        <Routes />
+      </Router>
+    </Box>
   );
 }
 
