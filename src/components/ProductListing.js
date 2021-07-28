@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { fetchProductsData } from '../api';
 import { setProducts } from '../state/actions/productActions';
+import { ProductCard } from './ProductCard';
 
 export const ProductListing = () => {
   const { products } = useSelector((state) => state.allProducts);
@@ -16,9 +17,13 @@ export const ProductListing = () => {
     getProductsData();
   }, []);
 
+  if (products.length === 0) {
+    return <h1>Loading...</h1>;
+  }
+
   return (
     <div>
-      <div>Prodcut Listing</div>
+      <ProductCard />
     </div>
   );
 };
