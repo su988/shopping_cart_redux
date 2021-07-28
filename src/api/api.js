@@ -1,7 +1,9 @@
+import axios from 'axios';
+
+const URL = 'https://fakestoreapi.com/products';
+
 export const fetchProductsData = async () => {
-  const response = await fetch('https://fakestoreapi.com/products');
+  const response = await axios.get(URL).catch((err) => console.log('Err', err));
 
-  const data = response.json();
-
-  return data;
+  return response.data;
 };
