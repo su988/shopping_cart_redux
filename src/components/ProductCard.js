@@ -36,7 +36,7 @@ export const ProductCard = () => {
         <Text mt={2} fontSize="l" fontWeight="semibold" lineHeight="short">
           {product.title}
         </Text>
-        <Text mt={2} fontSize="lg">
+        <Text mt={2} fontSize="lg" align="right">
           ${product.price}
         </Text>
         <Text mt={2} fontSize="sm" color="gray.500" isTruncated noOfLines={3}>

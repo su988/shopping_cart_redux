@@ -1,15 +1,23 @@
-// import * as types from '../constants/ActionTypes';
-// import { initialState } from './index';
+import {
+  ADD_TO_CART,
+  REMOVE_FROM_CART,
+  UPDATE_QUANTITY,
+} from '../constants/ActionTypes';
 
-// const cartReducer = (cart = initialState.cart, action) => {
-//   switch (action.type) {
-//     case types.ADD_TO_CART:
-//       return cart;
-//     case types.REMOVE_FROM_CART:
-//       return cart;
-//     default:
-//       return cart;
-//   }
-// };
+const initialState = {
+  cart: [],
+  qty: 0,
+};
 
-// export default cartReducer;
+export const cartReducer = (state = initialState, { type, payload }) => {
+  switch (type) {
+    case ADD_TO_CART:
+      return state;
+    case REMOVE_FROM_CART:
+      return state;
+    case UPDATE_QUANTITY:
+      return state;
+    default:
+      return state;
+  }
+};
