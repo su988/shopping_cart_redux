@@ -32,8 +32,10 @@ export const cartReducer = (state = initialState, { type, payload }) => {
       };
 
     case REMOVE_FROM_CART:
+      const selectedProduct = state.cart.find((item) => item.id === payload);
       return {
         ...state,
+        total: state.total - selectedProduct.quantity,
         cart: state.cart.filter((item) => item.id !== payload),
       };
     case INCREASE_QUANTITY:

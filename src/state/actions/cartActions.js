@@ -13,7 +13,6 @@ export const addToCart = (payload) => {
 };
 
 export const removeFromCart = (payload) => {
-  console.log(payload);
   return {
     type: REMOVE_FROM_CART,
     payload,
@@ -28,7 +27,6 @@ export const increaseQuantity = (payload) => {
 };
 
 export const decreaseQuantity = (payload) => {
-  console.log(payload);
   return {
     type: DECREASE_QUANTITY,
     payload,
