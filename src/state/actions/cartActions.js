@@ -1,7 +1,8 @@
 import {
   ADD_TO_CART,
   REMOVE_FROM_CART,
-  UPDATE_QUANTITY,
+  INCREASE_QUANTITY,
+  DECREASE_QUANTITY,
 } from '../constants/ActionTypes';
 
 export const addToCart = (payload) => {
@@ -18,9 +19,16 @@ export const removeFromCart = (payload) => {
   };
 };
 
-export const updateQuantity = (payload) => {
+export const increaseQuantity = (payload) => {
   return {
-    type: UPDATE_QUANTITY,
+    type: INCREASE_QUANTITY,
+    payload,
+  };
+};
+
+export const decreaseQuantity = (payload) => {
+  return {
+    type: DECREASE_QUANTITY,
     payload,
   };
 };

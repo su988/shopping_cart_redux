@@ -1,8 +1,8 @@
 import { SET_PRODUCTS } from '../constants/ActionTypes';
 
-export const setProducts = (products) => {
+export const setProducts = (payload) => {
   return {
     type: SET_PRODUCTS,
-    payload: products,
+    payload,
   };
 };

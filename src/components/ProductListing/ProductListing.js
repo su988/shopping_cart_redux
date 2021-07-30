@@ -1,8 +1,10 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { fetchProductsData } from '../api';
-import { setProducts } from '../state/actions/productActions';
-import { ProductCard } from './ProductCard';
+import { SimpleGrid } from '@chakra-ui/react';
+import { Text } from '@chakra-ui/react';
+import { fetchProductsData } from '../../api';
+import { setProducts } from '../../state/actions/productActions';
+import { ProductCard } from '../ProductCard';
 
 export const ProductListing = () => {
   const { products } = useSelector((state) => state.allProducts);
@@ -14,16 +16,18 @@ export const ProductListing = () => {
   };
 
   useEffect(() => {
-    getProductsData();
+    if (products.length === 0) {
+      getProductsData();
+    }
   }, []);
 
   if (products.length === 0) {
-    return <h1>Loading...</h1>;
+    return <Text fontSize="4xl">Loading...</Text>;
   }
 
   return (
-    <div>
+    <SimpleGrid columns={[1, 2, 4]} spacing="20px" mb={20}>
       <ProductCard />
-    </div>
+    </SimpleGrid>
   );
 };
