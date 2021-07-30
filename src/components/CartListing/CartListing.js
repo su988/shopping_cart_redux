@@ -1,6 +1,6 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import { Container } from '@chakra-ui/react';
+import { Container, Box } from '@chakra-ui/react';
 import { CartCard } from '../CartCard';
 
 export const CartListing = () => {
@@ -14,7 +14,7 @@ export const CartListing = () => {
   return (
     <>
       <Container mt="20" maxW="max-content">
-        {renderList}
+        {cart.length === 0 ? <Box>Cart is Empty</Box> : renderList}
       </Container>
     </>
   );

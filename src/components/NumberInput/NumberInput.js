@@ -10,7 +10,6 @@ export const NumberInput = ({ quantity, id }) => {
     useNumberInput({
       step: 1,
       defaultValue: quantity,
-      min: 1,
     });
   const dispatch = useDispatch();
 
@@ -20,7 +19,11 @@ export const NumberInput = ({ quantity, id }) => {
 
   return (
     <HStack maxW="150px">
-      <Button {...dec} onClick={() => dispatch(decreaseQuantity(id))}>
+      <Button
+        {...dec}
+        onClick={() => dispatch(decreaseQuantity(id))}
+        disabled={quantity === 1}
+      >
         -
       </Button>
       <Input {...input} />

@@ -21,9 +21,8 @@ export const CartCard = ({ product }) => {
         bg="white"
       >
         <Button size="xs" onClick={() => dispatch(removeFromCart(product.id))}>
-          <MdDeleteForever size="1.5em" />
+          <MdDeleteForever size="1.5em" color="#E53E3E" />
         </Button>
-
         <Image
           borderRadius="md"
           src={product.image}
@@ -34,7 +33,6 @@ export const CartCard = ({ product }) => {
         <Box w={[null, '300px', '500px']} ml="20px">
           <Text>{product.title}</Text>
         </Box>
-
         <Box mr="10" ml="10">
           <NumberInput quantity={product.quantity} id={product.id} />
         </Box>
