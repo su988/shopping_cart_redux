@@ -37,7 +37,7 @@ export const CartCard = ({ product }) => {
           <NumberInput quantity={product.quantity} id={product.id} />
         </Box>
         <Box w="100px">
-          <Text fontSize="xl" color="teal" fontWeight="bold">
+          <Text fontSize="l" color="teal" fontWeight="bold">
             ${(product.quantity * product.price).toFixed(2)}
           </Text>
         </Box>
