@@ -6,14 +6,14 @@ import {
 } from '../constants/ActionTypes';
 
 const initialState = {
-  products: [],
+  cart: [],
   total: 0,
 };
 
 export const cartReducer = (state = initialState, { type, payload }) => {
   switch (type) {
     case ADD_TO_CART:
-      const existingItem = state.products.find((item) => {
+      const existingItem = state.cart.find((item) => {
         return item.id === payload.id;
       });
 
@@ -28,23 +28,21 @@ export const cartReducer = (state = initialState, { type, payload }) => {
       return {
         ...state,
         total: state.total + 1,
-        cart: [...state.products, { ...payload, quantity: 1 }],
+        cart: [...state.cart, { ...payload, quantity: 1 }],
       };
 
     case REMOVE_FROM_CART:
-      const selectedProduct = state.products.find(
-        (item) => item.id === payload,
-      );
+      const selectedProduct = state.cart.find((item) => item.id === payload);
       return {
         ...state,
         total: state.total - selectedProduct.quantity,
-        cart: state.products.filter((item) => item.id !== payload),
+        cart: state.cart.filter((item) => item.id !== payload),
       };
     case INCREASE_QUANTITY:
       return {
         ...state,
         total: state.total + 1,
-        cart: state.products.map((item) =>
+        cart: state.cart.map((item) =>
           item.id === payload ? { ...item, quantity: item.quantity + 1 } : item,
         ),
       };
@@ -52,7 +50,7 @@ export const cartReducer = (state = initialState, { type, payload }) => {
       return {
         ...state,
         total: state.total - 1,
-        cart: state.products.map((item) =>
+        cart: state.cart.map((item) =>
           item.id === payload ? { ...item, quantity: item.quantity - 1 } : item,
         ),
       };
