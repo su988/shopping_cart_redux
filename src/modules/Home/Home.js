@@ -6,10 +6,12 @@ import { fetchProductsData } from '../../api';
 import { getProducts } from '../../state/actions/productActions';
 import { CategoryRadio } from '../../components/CategoryRadio';
 import { filterByCategory } from '../../utils/filterByCategory';
+import { SortPrice } from '../../components/SortPrice/SortPrice';
+import { sortProducts } from '../../utils/sortByPrice';
 
 export const Home = () => {
   const productsFromStore = useSelector((state) => state.allProducts.products);
-  const { category } = useSelector((state) => state.allProducts);
+  const { category, sortBy } = useSelector((state) => state.allProducts);
   const dispatch = useDispatch();
   const [products, setProducts] = useState(productsFromStore);
 
@@ -29,8 +31,10 @@ export const Home = () => {
   }, [productsFromStore]);
 
   useEffect(() => {
-    setProducts(filterByCategory(productsFromStore, category));
-  }, [category]);
+    setProducts(
+      sortProducts(filterByCategory(productsFromStore, category), sortBy),
+    );
+  }, [category, sortBy]);
 
   if (products.length === 0) {
     return <Text fontSize="4xl">Loading...</Text>;
@@ -39,11 +43,13 @@ export const Home = () => {
   return (
     <Container centerContent="true" maxW="max-content" mt={40}>
       <Flex>
-        <Box minW="200px">
+        <Box minW="200px" position="fixed">
           <CategoryRadio />
-          <div>Sort by price</div>
+          <SortPrice />
         </Box>
-        <ProductListing products={products} />
+        <Box ml="15em">
+          <ProductListing products={products} />
+        </Box>
       </Flex>
     </Container>
   );

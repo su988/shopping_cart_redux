@@ -4,7 +4,8 @@ import { Box } from '@chakra-ui/react';
 import { CartListing } from '../../components/CartListing';
 
 export const Cart = () => {
-  const cart = useSelector((state) => state.cart.products);
+  const { cart } = useSelector((state) => state.cart);
+  console.log(cart);
 
   const [totalPrice, setTotalPrice] = useState(0);
 

@@ -1,5 +1,6 @@
 export const GET_PRODUCTS = 'GET_PRODUCTS';
 export const SET_CATEGORY = 'SET_CATEGORY';
+export const SORT_BY_PRICE = 'SORT_BY_PRICE';
 export const ADD_TO_CART = 'ADD_TO_CART';
 export const REMOVE_FROM_CART = 'REMOVE_FROM_CART';
 export const INCREASE_QUANTITY = 'INCREASE_QUANTITY';

@@ -1,8 +1,13 @@
-import { GET_PRODUCTS, SET_CATEGORY } from '../constants/ActionTypes';
+import {
+  GET_PRODUCTS,
+  SET_CATEGORY,
+  SORT_BY_PRICE,
+} from '../constants/ActionTypes';
 
 const initialState = {
   products: [],
   category: '',
+  sortBy: '',
 };
 
 export const productsReducer = (state = initialState, { type, payload }) => {
@@ -17,6 +22,12 @@ export const productsReducer = (state = initialState, { type, payload }) => {
         ...state,
         category: payload,
       };
+    case SORT_BY_PRICE:
+      return {
+        ...state,
+        sortBy: payload,
+      };
+
     default:
       return state;
   }
