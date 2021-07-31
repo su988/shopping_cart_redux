@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import {
   Box,
@@ -15,6 +15,22 @@ import { addToCart } from '../../state/actions/cartActions';
 
 export const ProductCard = ({ product }) => {
   const dispatch = useDispatch();
+  const [isLoading, setIsLoading] = useState(false);
+
+  const handleClick = () => {
+    setIsLoading(true);
+    dispatch(addToCart(product));
+  };
+
+  useEffect(() => {
+    if (isLoading) {
+      let timer1 = setTimeout(() => setIsLoading(false), 200);
+
+      return () => {
+        clearTimeout(timer1);
+      };
+    }
+  }, [isLoading]);
 
   return (
     <Box p="5" maxW="320px" borderWidth="1px" key={product.id} pos="relative">
@@ -49,7 +65,9 @@ export const ProductCard = ({ product }) => {
         pos="absolute"
         bottom="0"
         left="0"
-        onClick={() => dispatch(addToCart(product))}
+        isLoading={isLoading}
+        loadingText="Adding to Cart"
+        onClick={handleClick}
       >
         Add to Cart
       </Button>
