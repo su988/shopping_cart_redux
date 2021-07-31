@@ -1,11 +1,22 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Box, Flex, Text } from '@chakra-ui/react';
 import { MdShoppingCart } from 'react-icons/md';
 import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 
 export const Header = () => {
-  const { total } = useSelector((state) => state.cart);
+  const { cart, total } = useSelector((state) => state.cart);
+
+  const [totalQty, setTotalQty] = useState(0);
+
+  useEffect(() => {
+    let total = 0;
+    cart.forEach((item) => {
+      total += item.quantity;
+    });
+
+    setTotalQty(total);
+  }, [cart, total]);
 
   return (
     <Box
@@ -27,7 +38,7 @@ export const Header = () => {
         </Link>
         <Box>
           <Text fontSize="xl" as="span" color="white" fontWeight="bold">
-            {total}
+            {totalQty}
           </Text>
           <Link to="/cart">
             <MdShoppingCart size="2em" color="white" />
