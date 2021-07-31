@@ -24,10 +24,10 @@ export const ProductCard = ({ product }) => {
 
   useEffect(() => {
     if (isLoading) {
-      let timer1 = setTimeout(() => setIsLoading(false), 200);
+      let timer = setTimeout(() => setIsLoading(false), 200);
 
       return () => {
-        clearTimeout(timer1);
+        clearTimeout(timer);
       };
     }
   }, [isLoading]);

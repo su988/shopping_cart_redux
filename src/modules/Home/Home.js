@@ -39,7 +39,7 @@ export const Home = () => {
   }, [category, sortBy]);
 
   return (
-    <Container centerContent="true" maxW="max-content" mt={40}>
+    <Container centerContent="true" maxW="max-content" mt="9em">
       {products.length === 0 ? (
         <ProductLoadingSpinner />
       ) : (

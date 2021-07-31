@@ -1,12 +1,12 @@
 import React from 'react';
 import { Box, Flex, Text, Button } from '@chakra-ui/react';
 
-export const CartTotal = ({ totalPrice }) => {
+export const CartTotal = ({ totalPrice, isSmallerThan1200 }) => {
   return (
     <Box
-      w="300px"
+      w={isSmallerThan1200 ? '100%' : '300px'}
       maxH="200px"
-      ml="2em"
+      ml={isSmallerThan1200 ? '0' : '2em'}
       borderWidth="1px"
       borderRadius="lg"
       boxShadow="md"
