@@ -4,7 +4,8 @@ import { Box } from '@chakra-ui/react';
 import { CartListing } from '../../components/CartListing';
 
 export const Cart = () => {
-  const { cart } = useSelector((state) => state.cart);
+  const cart = useSelector((state) => state.cart.products);
+
   const [totalPrice, setTotalPrice] = useState(0);
 
   useEffect(() => {
@@ -18,7 +19,7 @@ export const Cart = () => {
   }, [cart]);
 
   return (
-    <Box mt="40">
+    <Box mt="12em">
       <CartListing totalPrice={totalPrice} cart={cart} />
     </Box>
   );

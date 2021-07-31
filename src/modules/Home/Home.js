@@ -5,6 +5,7 @@ import { ProductListing } from '../../components/ProductListing';
 import { fetchProductsData } from '../../api';
 import { getProducts } from '../../state/actions/productActions';
 import { CategoryRadio } from '../../components/CategoryRadio';
+import { filterByCategory } from '../../utils/filterByCategory';
 
 export const Home = () => {
   const productsFromStore = useSelector((state) => state.allProducts.products);
@@ -28,11 +29,7 @@ export const Home = () => {
   }, [productsFromStore]);
 
   useEffect(() => {
-    setProducts(
-      productsFromStore.filter((item) => {
-        return category === 'all' ? item : item.category === category;
-      }),
-    );
+    setProducts(filterByCategory(productsFromStore, category));
   }, [category]);
 
   if (products.length === 0) {
