@@ -32,15 +32,15 @@
 # In the project directory run:
 
 # Install dependencies
-npm install
+yarn
 
 # Start
-npm run start
+yarn start
 
 # Build
-npm run build
+yarn build
 
 # Test
-npm test
+yarn test
 
 ```
