@@ -6,7 +6,9 @@ import {
 } from '../constants/ActionTypes';
 
 const initialState = {
-  cart: [],
+  cart: localStorage.getItem('cart')
+    ? JSON.parse(localStorage.getItem('cart'))
+    : [],
   total: 0,
 };
 
