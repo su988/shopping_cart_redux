@@ -1,6 +1,6 @@
 :star: E-commerce store which gets data from [Fake Store API](https://fakestoreapi.com/). Built with React for front-end, Redux for state management and Chakra UI for UI components.
 
-### :point_right: [DEMO]() :rocket:
+### :point_right: [DEMO](https://shopping-cart-redux.vercel.app/) :rocket:
 
 ## :hammer: Technologies & Tools
 
