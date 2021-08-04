@@ -26,9 +26,10 @@ export const Home = () => {
     if (products.length === 0) {
       getProductsData();
     }
-  }, []);
+  }, [products]);
 
   useEffect(() => {
+    localStorage.setItem('products', JSON.stringify(productsFromStore));
     setProducts(productsFromStore);
   }, [productsFromStore]);
 
