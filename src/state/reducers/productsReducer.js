@@ -6,6 +6,7 @@ import {
 
 const initialState = {
   products: [],
+  selectedProduct: [],
   category: '',
   sortBy: '',
 };
